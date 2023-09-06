@@ -1,41 +1,13 @@
 html,
 
-/*Fiche produit*/
-
 
 body {
   margin: 0;
   padding: 0;
   display: block;
-  background-color: white;
+
   font-family: Verdana, sans-serif;
   font-size: 1rem;
-}
-
-header {
-  background-color: rgb(35, 31, 88);
-  color: aliceblue;
-  padding: 1.5rem;
-}
-
-
-.full_text_header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.text_header {
-    font-size: 4rem;
-}
-
-.menu {
-    font-size: 1rem;
-}
-
-.details_prod {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1rem;
 }
 
 h1 {
@@ -45,45 +17,113 @@ h1 {
 }
 
 h2 {
+  font-size: 2.5rem;
+  color: rgb(16, 16, 141);
+}
+
+h3 {
   font-size: 1.5rem;
 }
 
-.description_prod {
-  margin-bottom: 2rem;
+/*a:link {
+  color: rgb(228, 128, 228);
+  text-decoration: underline;
+}*/
+
+ /* header */
+
+header {
+  background-color: rgb(35, 31, 88);
+  color: aliceblue;
+  padding: 1.5rem;
+  display: flex;
 }
 
-.photo_prod {
-  border-style:dashed;
-  border-color: rgb(0, 0, 0);
-  width: 30%;
-  margin-bottom: 2rem;
+.text_header {
+  display:flex;
 }
 
-.prix_prod {
-  font-weight: bold;
+.logo {
+  padding-right: 1.5rem;
 }
+
+.company_name {
+  font-size: 4rem;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.menu {
+  display: flex;
+  justify-items: space-between;
+  font-size: 1rem;
+}
+
+  /* footer */
 
 footer {
   height: 100%;
   text-align: center;
   background-color: rgb(35, 31, 88);
   color: aliceblue;
+  padding-top: 2rem;
+  padding-bottom: 0.7rem;
+}
+
+.follow_all {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-size: 1.5rem;
-  padding: 2rem;
+  margin-bottom: 0.9rem;
 }
 
-a:link {
-  color: rgb(228, 128, 228);
-  text-decoration: underline;
-}
+/* catalogue */
 
-
-/* Catalogue specificité */
 .catalogue {
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
+  text-align: center;
+  justify-content: space-around;
 }
+
+.product {
+  border-style: double;
+  border-color: rgb(97, 97, 97);
+  margin-bottom: 0.5rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.details_prod {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.description_prod {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.photo_prod {
+  width: 30%;
+  margin-bottom: 2rem;
+}
+
+.prix_prod {
+  text-decoration: line-through;
+}
+
+.prixdis_prod {
+  font-weight: bold;
+  color:rgb(245, 15, 15)
+}
+
+.prixHT_prod {
+  color: rgb(152, 153, 153);
+}
+
+/* Panier */
+
+
+
+/* Accueil */
