@@ -1,6 +1,6 @@
 <?php
-
-$products = [
+function getProducts() {
+ return [
 "Souris" => [
     "id" => "1",
     "name" => "Souris",
@@ -41,11 +41,13 @@ $products = [
     "description" => "Ce magnifique écran est, en plus, très lumineux.",
 ],
 ];
-
-function getProducts() {
-
 }
 
-function getProduct() {
-    
+
+function getProduct($id) {
+    foreach (getProducts() as $product):
+     if ($product["id"] == $id) {
+         return $product;
+     }
+    endforeach;
 }

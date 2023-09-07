@@ -1,10 +1,10 @@
 <?php
 
 include 'functions/prices.php';
+include 'functions/products.php';
 include 'templates/header.php';
 
 ?>
-
 
 <div class= "panier_global"> 
 
