@@ -25,10 +25,9 @@ h3 {
   font-size: 1.5rem;
 }
 
-/*a:link {
-  color: rgb(228, 128, 228);
+a:link {
   text-decoration: underline;
-}*/
+}
 
  /* header */
 
@@ -37,6 +36,7 @@ header {
   color: aliceblue;
   padding: 1.5rem;
   display: flex;
+  justify-content: space-between;
 }
 
 .text_header {
@@ -54,9 +54,24 @@ header {
 }
 
 .menu {
+  color: rgb(208, 171, 241);
   display: flex;
-  justify-items: space-between;
+  padding: 1rem;
+  padding-top: 4rem;
   font-size: 1rem;
+
+}
+
+.link_accueil {
+  margin-right: 0.7rem;
+}
+
+.link_catalog {
+  margin-right: 0.7rem;
+}
+
+.link_panier {
+  margin-right: 20rem;
 }
 
   /* footer */
@@ -89,8 +104,8 @@ footer {
   border-style: double;
   border-color: rgb(97, 97, 97);
   margin-bottom: 0.5rem;
-  margin-left: 15rem;
-  margin-right: 15rem;
+  margin-left: 30rem;
+  margin-right: 30rem;
 }
 
 .details_prod {

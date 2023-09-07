@@ -54,16 +54,16 @@ $products = [
                 <img class="photo_prod" src="<?php echo $product["photo"] ?>" alt="photo du produit">
             </section>
             <section class="prix_prod">
-                <?php echo formatPrice($product["price"]) ?>
+                <?php echo formatPrice($product["price"])?> TTC
             </section>
             <section class="discount_prod">
-            <p><?php echo $product["discount"] . "% de rabais" ?></p>
+            <p><?php echo "-" . $product["discount"] . "%" ?></p>
             </section>    
             <section class="prixdis_prod">
-            <p><?php echo discountedPrice($product["price"], $product["discount"]) ?></p>
+            <p><?php echo discountedPrice($product["price"], $product["discount"])?> TTC</p>
             </section>    
             <section class="prixHT_prod">
-            <p>PrixHT : <?php echo priceExcludingVAT($product["price"]) ?></p>
+            <p><?php echo priceExcludingVAT($product["price"])?> HT</p>
             </section>
             </section>
         </section>

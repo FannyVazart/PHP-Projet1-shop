@@ -10,7 +10,7 @@
     </section>   
   </div>
   </div class="all_rights">
-  © All rights reserved. Le Campus Numérique. 2023.
+    © All rights reserved. Le Campus Numérique. 2023.
   </div>
 </footer>
 
