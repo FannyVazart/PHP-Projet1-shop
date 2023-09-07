@@ -60,10 +60,10 @@ $products = [
                 <p><?php echo "-" . $product["discount"] . "%" ?></p>
             </section>    
             <section class="prixdis_prod">
-                <p><?php echo discountedPrice($product["price"], $product["discount"])?> TTC</p>
+                <p><?php echo formatPrice(discountedPrice($product["price"], $product["discount"]))?> TTC</p>
             </section>    
             <section class="prixHT_prod">
-                <p><?php echo priceExcludingVAT($product["price"])?> HT</p>
+                <p><?php echo formatPrice(priceExcludingVAT($product["price"]))?> HT</p>
             </section>
                 <section class="formulaire">
                     <form action="cart.php" method="post">

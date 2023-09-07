@@ -145,6 +145,13 @@ footer {
 
 .panier_global {
   text-align: center;
+  align-content: center;
+}
+
+table {
+  font-size: 1.5rem;
+  
+  padding: 1rem;
 }
 
 /* Accueil */

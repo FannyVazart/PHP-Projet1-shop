@@ -10,9 +10,7 @@ include 'templates/header.php';
 
     <h2>Votre panier</h2>
 
-
-
-    <table>
+    <table class="resume_commande">
         <tbody>
             <tr>
                 <th>Produit</th>
@@ -22,17 +20,22 @@ include 'templates/header.php';
             </tr>
             <tr>
                 <td><?php echo htmlspecialchars((string)$_POST["type_product"]);?></td>
-                <td><?php echo $_POST["price_product"];?></td>
+                <td><?php echo formatPrice($_POST["price_product"]);?></td>
                 <td><?php echo htmlspecialchars((int)$_POST['form_quantite'])?></td>
-                <td><?php echo totalPrice($_POST["price_product"], $_POST['form_quantite']);?></td>
+                <td><?php echo formatPrice(totalPrice($_POST["price_product"], $_POST['form_quantite']));?></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th>Prix HT</th>
+                <td><?php echo formatPrice(priceExcludingVAT(totalPrice($_POST["price_product"], $_POST['form_quantite']))) ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th>TVA 5.5%</th>
+                <td><?php echo formatPrice(VAT(totalPrice($_POST["price_product"], $_POST['form_quantite']), priceExcludingVAT(totalPrice($_POST["price_product"], $_POST['form_quantite'])))) ?></td>
             </tr>
          </tbody>
     </table>
-
-
-
-<p><?php echo htmlspecialchars((int)$_POST['form_quantite'])?></p>
-
 
 </div>
 
