@@ -137,8 +137,14 @@ footer {
   color: rgb(152, 153, 153);
 }
 
+.formulaire {
+  padding-bottom: 1rem;
+}
+
 /* Panier */
 
-
+.panier_global {
+  text-align: center;
+}
 
 /* Accueil */

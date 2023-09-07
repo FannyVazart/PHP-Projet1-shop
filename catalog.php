@@ -57,15 +57,31 @@ $products = [
                 <?php echo formatPrice($product["price"])?> TTC
             </section>
             <section class="discount_prod">
-            <p><?php echo "-" . $product["discount"] . "%" ?></p>
+                <p><?php echo "-" . $product["discount"] . "%" ?></p>
             </section>    
             <section class="prixdis_prod">
-            <p><?php echo discountedPrice($product["price"], $product["discount"])?> TTC</p>
+                <p><?php echo discountedPrice($product["price"], $product["discount"])?> TTC</p>
             </section>    
             <section class="prixHT_prod">
-            <p><?php echo priceExcludingVAT($product["price"])?> HT</p>
+                <p><?php echo priceExcludingVAT($product["price"])?> HT</p>
             </section>
-            </section>
+                <section class="formulaire">
+                    <form action="cart.php" method="post">
+                        <select name="form_quantite">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <input type="hidden" name="type_product" value="<?php echo $product['name']?>">
+                        <input type="hidden" name="price_product" value="<?php echo discountedPrice($product["price"], $product["discount"])?>">
+                            <button type="submit">Ajouter au panier</button>
+                    </form>
+                </section>
         </section>
     <?php endforeach; ?>
 
