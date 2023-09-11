@@ -8,13 +8,12 @@ $nom = $_POST["type_product"];
 $prix = $_POST["price_product"];
 $quantite = $_POST['form_quantite'];
 $transporteur = $_POST["form_transporteur"];
+$weight = $_POST['weight_product'];
 
 $prix_unit = formatPrice($prix);
 $prix_total = formatPrice(totalPrice($prix, $quantite));
 $prix_HT = formatPrice(priceExcludingVAT(totalPrice($prix, $quantite)));
 $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPrice($prix, $quantite))))
-
-
 
 ?>
 
@@ -47,28 +46,60 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
                 <td><?php echo $TVA ?></td>
             </tr>
             <tr>
-                <th colspan="3">Choix du transporteur et frais de port</th>
+                <th colspan="4">Choix du transporteur et frais de port</th>
             </tr>
             <tr>
                 <td></td>
                 <th colspan="2"> <form action="cart.php" method="post">
-                        <select name="form_transporteur">
-                            <option value="La_poste">La Poste</option>
+                        <select name="form_transporteur" label="transporteurs">
+                            <option value=" "> </option>
+                            <option value="La Poste">La Poste</option>
                             <option value="DPD">DPD</option>
-                            <option value="Colissimo_suivi">Colissimo Suivi</option>
                         </select></th>
+                 <input type="hidden" name="weight_product" value="<?php echo $_POST['weight_product']?>">
+                 <input type="hidden" name="type_product" value="<?php echo $_POST["type_product"]?>">
+                 <input type="hidden" name="form_quantite" value="<?php echo $_POST['form_quantite']?>">
+                 <input type="hidden" name="id_product" value="<?php echo $_POST['id_product']?>">
+                 <input type="hidden" name="price_product" value="<?php echo $_POST["price_product"]?>">
                 <td> <button type="submit">Choisir ce transporteur</button>
                     </form></td>
             </tr>
             <tr>
                 <td colspan="2"></td>
-                <th>Frais de port</th>
-                <td></td>
+                <th>Transporteur
+                </th>
+                <td> <?php 
+              if ($transporteur=="La Poste") {
+                 echo "La Poste";
+              } elseif ($transporteur=="DPD") {
+                 echo "DPD";
+              } else {
+              }
+              ?> </td>
             </tr>
             <tr>
-                <td></td>
-                <th colspan="2">Prix total, frais de port inclus</th>
-                <td></td>
+                <td colspan="2"></td>
+                <th>Frais de port</th>
+                <td> <?php 
+              if ($transporteur=="La Poste") {
+                echo formatPrice(fraisPortPoste($quantite, $prix, $weight));
+              } elseif ($transporteur=="DPD") {
+                echo formatPrice(fraisPortDPD($quantite, $weight));
+              } else {
+              }
+              ?> </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th>Prix total</th>
+                <td> <?php 
+              if ($transporteur=="La Poste") {
+                echo formatPrice(totalPrice($prix, $quantite)+fraisPortPoste($quantite, $prix, $weight));
+              } elseif ($transporteur=="DPD") {
+                echo formatPrice(totalPrice($prix, $quantite)+fraisPortDPD($quantite, $weight));
+              } else {
+              }
+              ?> </td> 
             </tr>
          </tbody>
     </table>

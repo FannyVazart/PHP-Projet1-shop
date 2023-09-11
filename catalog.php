@@ -47,6 +47,7 @@ include 'templates/header.php';
                         </select>
                         <input type="hidden" name="type_product" value="<?php echo $product['name']?>">
                         <input type="hidden" name="id_product" value="<?php echo $product['id']?>">
+                        <input type="hidden" name="weight_product" value="<?php echo $product['weight']?>">
                         <input type="hidden" name="price_product" value="<?php echo discountedPrice($product["price"], $product["discount"])?>">
                             <button type="submit">Ajouter au panier</button>
                     </form>
