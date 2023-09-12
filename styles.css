@@ -104,8 +104,8 @@ footer {
   border-style: double;
   border-color: rgb(97, 97, 97);
   margin-bottom: 0.5rem;
-  margin-left: 30rem;
-  margin-right: 30rem;
+  margin-left: 45rem;
+  margin-right: 45rem;
 }
 
 .details_prod {
@@ -149,6 +149,8 @@ footer {
 }
 
 .resume_commande {
+  table-layout: auto;
+  width: 1000px;
   font-size: 1.5rem;
   padding: 1rem;
 }
