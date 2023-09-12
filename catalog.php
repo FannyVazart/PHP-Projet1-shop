@@ -49,12 +49,36 @@ include 'templates/header.php';
                         <input type="hidden" name="id_product" value="<?php echo $product['id']?>">
                         <input type="hidden" name="weight_product" value="<?php echo $product['weight']?>">
                         <input type="hidden" name="price_product" value="<?php echo discountedPrice($product["price"], $product["discount"])?>">
-                            <button type="submit">Ajouter au panier</button>
+                            <input class = "button" type="submit" name="addToCart" value="Ajouter au panier">
                     </form>
                 </section>
         </section>
     <?php endforeach; ?>
 
 </div>
+
+<?php 
+if(isset($_REQUEST["addToCart"])) {
+    
+    if (isset($_SESSION['panier'])) {
+        
+        $product = array (
+            'id' => $_POST["id"],
+            'quantite' => $_POST['form_quantite'],
+        );
+        
+        $_SESSION["panier"][0] = $product;
+    } else {
+        $numberProducts = count($_SESSION['panier']);
+        $product = array (
+            'id' => $_POST["id"],
+            'quantite' => $_POST['form_quantite'],
+        );
+        $_SESSION['panier'][$numberPoducts] = $product;
+    }
+
+}
+
+?>
 
 <?php include 'templates/footer.php'; ?>

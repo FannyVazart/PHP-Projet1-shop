@@ -21,7 +21,23 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
 
     <h2>Votre panier</h2>
 
-    <table class="resume_commande">
+    <?php 
+          if(isset($_COOKIE['PHPSESSID'])){
+              echo 'ID (via $_COOKIE) : <br>'
+              .$_COOKIE['PHPSESSID'];
+          }
+     ?>
+
+    <?php 
+        if (isset($_SESSION['panier'])) {
+
+          foreach($_SESSION['panier'] as $donnee);
+
+          $item = getProduct($donnee['id']);
+        }
+    ?>
+
+    <table class="resume_commande"> 
         <tbody>
             <tr>
                 <th>Produit</th>
@@ -29,7 +45,7 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
                 <th>Quantité</th>
                 <th>Total</th>
             </tr>
-            <tr>
+            <tr> 
                 <td><?php echo htmlspecialchars($nom) ?></td>
                 <td><?php echo $prix_unit ?></td>
                 <td><?php echo htmlspecialchars((int)$quantite)?></td>
@@ -46,7 +62,7 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
                 <td><?php echo $TVA ?></td>
             </tr>
             <tr>
-                <th colspan="4">Choix du transporteur et frais de port</th>
+                <th colspan="4"><u>Choix du transporteur et frais de port</u></th>
             </tr>
             <tr>
                 <td></td>
@@ -103,7 +119,6 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
             </tr>
          </tbody>
     </table>
-
 </div>
 
 <?php include 'templates/footer.php'; ?>
