@@ -11,22 +11,28 @@ include 'templates/header.php';
 
     <h2> Catalogue des produits </h2>
     
-    <?php foreach($req -> fetchall() as $res): ?>
+    <?php foreach(getProducts() as $product): ?>
         <section class="product">
             <section class="nom_prod">
-                <h3><?php echo $res["name"] ?></h3>
+                <h3><?php echo $product["name"] ?></h2>
             </section>  
             <section class="description_prod">
-                <?php echo $res["description"] ?>
+                <?php echo $product["description"] ?>
             </section>
             <section>
-                <img class="photo_prod" src="<?php echo $res["image_url"] ?>" alt="photo du produit">
+                <img class="photo_prod" src="<?php echo $product["photo"] ?>" alt="photo du produit">
             </section>
             <section class="prix_prod">
-                <?php echo formatPrice($res["price"])?> TTC
-            </section>   
+                <?php echo formatPrice($product["price"])?> TTC
+            </section>
+            <section class="discount_prod">
+                <p><?php echo "-" . $product["discount"] . "%" ?></p>
+            </section>    
+            <section class="prixdis_prod">
+                <p><?php echo formatPrice(discountedPrice($product["price"], $product["discount"]))?> TTC</p>
+            </section>    
             <section class="prixHT_prod">
-                <p><?php echo formatPrice(priceExcludingVAT($res["price"]))?> HT</p>
+                <p><?php echo formatPrice(priceExcludingVAT($product["price"]))?> HT</p>
             </section>
                 <section class="formulaire">
                     <form action="cart.php" method="post">
@@ -40,10 +46,10 @@ include 'templates/header.php';
                             <option value="7">7</option>
                             <option value="8">8</option>
                         </select>
-                        <input type="hidden" name="weight_product" value="<?php echo $res['weight']?>">
-                        <input type="hidden" name="type_product" value="<?php echo $res["name"]?>">
-                        <input type="hidden" name="id_product" value="<?php echo $res['id']?>">
-                        <input type="hidden" name="price_product" value="<?php echo $product["price"]?>">
+                        <input type="hidden" name="weight_product" value="<?php echo $product['weight']?>">
+                        <input type="hidden" name="type_product" value="<?php echo $product["name"]?>">
+                        <input type="hidden" name="id_product" value="<?php echo $product['id']?>">
+                        <input type="hidden" name="price_product" value="<?php echo discountedPrice($product["price"], $product["discount"])?>">
                         <input class = "button" type="submit" name="addToCart" value="Ajouter au panier">
                     </form>
                 </section>

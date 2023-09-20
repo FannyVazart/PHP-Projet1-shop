@@ -74,6 +74,10 @@ header {
   margin-right: 20rem;
 }
 
+.link_inscription {
+  margin-right: 20rem;
+}
+
   /* footer */
 
 footer {
@@ -124,10 +128,6 @@ footer {
   margin-bottom: 2rem;
 }
 
-.prix_prod {
-  text-decoration: line-through;
-}
-
 .prixdis_prod {
   font-weight: bold;
   color:rgb(245, 15, 15)
@@ -144,6 +144,7 @@ footer {
 /* Panier */
 
 .panier_global {
+  display: flex;
   text-align: center;
   align-content: center;
 }
@@ -153,6 +154,14 @@ footer {
   width: 1000px;
   font-size: 1.5rem;
   padding: 1rem;
+  align-self: center;
 }
 
 /* Accueil */
+
+.formulaire_inscription {
+  display: flex;
+  text-align: center;
+  align-content: center;
+}
+

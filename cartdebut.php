@@ -22,22 +22,6 @@ $TVA = formatPrice((totalPrice($prix, $quantite)) - (priceExcludingVAT(totalPric
 
     <h2>Votre panier</h2>
 
-    <!-- <?php 
-          if(isset($_COOKIE['PHPSESSID'])){
-              echo 'ID session (via $_COOKIE) : <br>'
-              .$_COOKIE['PHPSESSID'];
-          }
-     ?>
-
-    <?php 
-        if (isset($_SESSION['panier'])) {
-
-          foreach($_SESSION['panier'] as $donnee);
-
-          $item = getProduct($donnee['id']);
-        }
-    ?> -->
-
     <table class="resume_commande"> 
         <tbody>
             <tr>

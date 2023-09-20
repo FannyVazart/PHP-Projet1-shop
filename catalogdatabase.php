@@ -14,7 +14,7 @@ include 'templates/header.php';
     <?php foreach($req -> fetchall() as $res): ?>
         <section class="product">
             <section class="nom_prod">
-                <h3><?php echo $res["name"] ?></h3>
+                <h3><?php echo $res["name"] ?></h2>
             </section>  
             <section class="description_prod">
                 <?php echo $res["description"] ?>
